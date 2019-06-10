@@ -39,7 +39,7 @@ namespace WpfApp3
                 using (SQLiteConnection conn = new SQLiteConnection(connString))
                 {
                     conn.Open();
-                    string command = "INSERT INTO Users (Email,Name,Password) VALUES(@Email,@Password,@Name,@DateOfBirth)";
+                    string command = "INSERT INTO Users (Email,Name,Password) VALUES(@Email,@Name,@Password)";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
                     {
@@ -54,7 +54,7 @@ namespace WpfApp3
                         if (!String.IsNullOrEmpty(passPass.Password))
                         {
                             
-                            if (!String.IsNullOrEmpty(passRepPass.Password))
+                            if (!String.IsNullOrEmpty(passRepPass.Password)&&passRepPass.Password==passPass.Password)
                                 cmd.Parameters.AddWithValue("@Password", passPass.Password);
                             else
                             {

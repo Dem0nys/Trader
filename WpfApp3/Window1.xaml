@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Window1" Height="400" ResizeMode="NoResize" Width="400" Background="DodgerBlue">
+        Title="Window1" Height="400" ResizeMode="NoResize" Width="400" Background="#FF003466">
     <StackPanel>
         <StackPanel Orientation="Horizontal" Margin="130,0,0,0">
             <Image Source="kurs.png" Height="60"/>
-            <Label FontFamily="Comic Sans MS" Content="Tresu" FontSize="26"/>
+            <Label Foreground="White" FontFamily="Comic Sans MS" Content="Tresu" FontSize="26"/>
         </StackPanel>
         
-        <Label Content="Email :" FontSize="18" Margin="10,0,0,5"/>
-        <TextBox Name="txtEmail" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
-        <Label Content="Name :" FontSize="18" Margin="10,0,0,5"/>
-        <TextBox Name="txtName" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
-        <Label Content="Password :" FontSize="18" Margin="10,0,0,5"/>
-        <PasswordBox Name="passPass" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
-        <Label Content="Repeat your password :" FontSize="18" Margin="10,0,0,5"/>
-        <PasswordBox Height="20" Name="passRepPass" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
-        <Button Click="ButtonSubmit_Click" Content="Submit" FontSize="20" HorizontalAlignment="Right" Background="DodgerBlue" BorderBrush="Black" Width="120" Margin="10"/>
+        <Label Foreground="White" Content="Email :" FontSize="18" Margin="10,0,0,5"/>
+        <TextBox Foreground="White" Name="txtEmail" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="#FF003466"/>
+        <Label Foreground="White" Content="Name :" FontSize="18" Margin="10,0,0,5"/>
+        <TextBox Foreground="White" Name="txtName" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="#FF003466"/>
+        <Label Foreground="White" Content="Password :" FontSize="18" Margin="10,0,0,5"/>
+        <PasswordBox  Foreground="White" Name="passPass" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="#FF003466"/>
+        <Label  Foreground="White" Content="Repeat your password :" FontSize="18" Margin="10,0,0,5"/>
+        <PasswordBox  Foreground="White" Height="20" Name="passRepPass" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="#FF003466"/>
+        <Button  Foreground="White" Click="ButtonSubmit_Click" Content="Submit" FontSize="20" HorizontalAlignment="Right" Background="#FF003466" BorderBrush="Black" Width="120" Margin="10"/>
     </StackPanel>
 </Window>

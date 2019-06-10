@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Main" ResizeMode="NoResize" Background="DodgerBlue" Height="450" Width="640">
+        Title="Main" ResizeMode="NoResize" Background="#FF003466" Height="450" Width="640">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="46*"/>
@@ -16,6 +16,6 @@
             <ColumnDefinition Width="457*"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Source="kurs.png" Width="47" Margin="20,10,0,0"/>
-        <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="Auto" Width="Auto" FontFamily="Comic Sans MS" HorizontalAlignment="Center" FontSize="26" Margin="26,18,0,9">Tresu</TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="Auto" Width="Auto" FontFamily="Comic Sans MS" HorizontalAlignment="Center" FontSize="26" Margin="26,18,0,9" Foreground="White">Tresu</TextBlock>
     </Grid>
 </Window>

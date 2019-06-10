@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,47 @@ namespace WpfApp3
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window1 = new Window1();
+            window1.ShowDialog();
+        }
+
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    string command = "SELECT * FROM Users";
+                    using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                                if (txtLogin.Text == reader["Email"].ToString())
+                                {
+                                    if (passPass.Password == reader["Password"].ToString())
+                                    {
+                                        Main window = new Main();
+                                        window.ShowDialog();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
