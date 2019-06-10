@@ -133,6 +133,17 @@
   <ItemGroup>
     <Resource Include="kurs.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CS_GO\ak_47\asiimov.png" />
+    <Resource Include="CS_GO\ak_47\neon_revolution.png" />
+    <Resource Include="CS_GO\ak_47\vulcan.png" />
+    <Resource Include="CS_GO\awp\dragon_lore.png" />
+    <Resource Include="CS_GO\awp\medusa.png" />
+    <Resource Include="CS_GO\awp\snake_camo.png" />
+    <Resource Include="CS_GO\famas\crypsis.png" />
+    <Resource Include="CS_GO\usp_s\cyrex.png" />
+    <Resource Include="CS_GO\usp_s\kill_confirmed.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
