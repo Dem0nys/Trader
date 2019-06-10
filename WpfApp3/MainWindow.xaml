@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" Background="DarkGray" Height="241.831" Width="320.311">
+        Title="MainWindow" Background="DarkGray" ResizeMode="NoResize" Height="241.831" Width="320.311">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <local:TextInputToVisibilityConverter x:Key="converter" />
@@ -50,7 +50,7 @@
                 <TextBox Grid.Column="1" Name="text" Text=" Username" HorizontalAlignment="Center" VerticalAlignment="Center" Template="{DynamicResource ResourceKey=textbox1}" Height="26" Width="196" Grid.Row="1" Margin="0,10"/>
                 <Label VerticalAlignment="Center" Name="lab1" FontSize="18" Content=" Pasword" HorizontalAlignment="Left" Height="30" Width="86" Grid.Row="2"/>
                 <PasswordBox PasswordChar="*" BorderBrush="DimGray" Grid.Column="1" Name="text1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="196" Grid.Row="2" Margin="0,6"/>
-                <Button Content="REGISTER" HorizontalAlignment="Right" Margin="0,0,30,0" Height="30" Width="100" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Button Click="ButtonRegister_Click" Content="REGISTER" HorizontalAlignment="Right" Margin="0,0,30,0" Height="30" Width="100" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"/>
                 <Button Content="LOGIN" HorizontalAlignment="Left" Margin="30,0,0,0" Height="30" Width="100" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"/>
                 <Button Content="Forgot your password" HorizontalAlignment="Right" Height="24" Width="127" VerticalAlignment="Center" Grid.Row="4" Margin="0,5,85,0" Grid.ColumnSpan="2"/>
             </Grid>
