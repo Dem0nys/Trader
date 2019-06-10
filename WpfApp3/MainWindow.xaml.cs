@@ -25,15 +25,6 @@ namespace WpfApp3
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 window = new Window1();
-            window.ShowDialog();
-        }
+        
     }
 }

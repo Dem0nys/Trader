@@ -19,7 +19,7 @@
         <Label Content="Password :" FontSize="18" Margin="10,0,0,5"/>
         <PasswordBox Name="passPass" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
         <Label Content="Repeat your password :" FontSize="18" Margin="10,0,0,5"/>
-        <PasswordBox Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
-        <Button Content="Submit" FontSize="20" HorizontalAlignment="Right" Background="DodgerBlue" BorderBrush="Black" Width="120" Margin="10"/>
+        <PasswordBox Height="20" Name="passRepPass" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
+        <Button Click="ButtonSubmit_Click" Content="Submit" FontSize="20" HorizontalAlignment="Right" Background="DodgerBlue" BorderBrush="Black" Width="120" Margin="10"/>
     </StackPanel>
 </Window>
