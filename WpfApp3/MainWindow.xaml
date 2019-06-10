@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Background="DarkGray" Height="241.831" Width="320.311">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:TextInputToVisibilityConverter x:Key="converter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.Resources>
+            <ControlTemplate x:Key="textbox1" TargetType="{x:Type TextBox}">
+                <Grid>
+                    <Border BorderThickness="1" Background="White" BorderBrush="DimGray">
+                        <Grid>
+                            <TextBox Name="textLogin" FontSize="18" BorderThickness="0" Background="Transparent" Height="Auto" Width="Auto" Margin="0,0,0,-2"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="239*"/>
+            <ColumnDefinition Width="277*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="157*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Source="C:\Users\Elis\source\repos\WpfApp3\WpfApp3\bin\Debug\kurs.png" Width="37" Margin="0,10,0,0"/>
+        <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Height="28" Width="60" FontFamily="Comic Sans MS" HorizontalAlignment="Left" FontSize="20" Margin="0,18,0,9">Tresu</TextBlock>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+            <Grid Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="47*"/>
+                    <ColumnDefinition Width="103*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="46*"/>
+                    <RowDefinition Height="37*"/>
+                    <RowDefinition Height="32*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Label VerticalAlignment="Center" Name="lab" FontSize="18" Content=" Username" HorizontalAlignment="Left" Height="30" Width="99" Grid.Row="1"/>
+                <TextBox Grid.Column="1" Name="text" Text=" Username" HorizontalAlignment="Center" VerticalAlignment="Center" Template="{DynamicResource ResourceKey=textbox1}" Height="26" Width="196" Grid.Row="1" Margin="0,10"/>
+                <Label VerticalAlignment="Center" Name="lab1" FontSize="18" Content=" Pasword" HorizontalAlignment="Left" Height="30" Width="86" Grid.Row="2"/>
+                <PasswordBox PasswordChar="*" BorderBrush="DimGray" Grid.Column="1" Name="text1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="196" Grid.Row="2" Margin="0,6"/>
+                <Button Content="REGISTER" HorizontalAlignment="Right" Margin="0,0,30,0" Height="30" Width="100" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Button Content="LOGIN" HorizontalAlignment="Left" Margin="30,0,0,0" Height="30" Width="100" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Button Content="Forgot your password" HorizontalAlignment="Right" Height="24" Width="127" VerticalAlignment="Center" Grid.Row="4" Margin="0,5,85,0" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
