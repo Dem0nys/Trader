@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp3.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="Window1" Height="400" ResizeMode="NoResize" Width="400" Background="DodgerBlue">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="130,0,0,0">
+            <Image Source="kurs.png" Height="60"/>
+            <Label FontFamily="Comic Sans MS" Content="Tresu" FontSize="26"/>
+        </StackPanel>
+        
+        <Label Content="Email :" FontSize="18" Margin="10,0,0,5"/>
+        <TextBox Name="txtEmail" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
+        <Label Content="Name :" FontSize="18" Margin="10,0,0,5"/>
+        <TextBox Name="txtName" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
+        <Label Content="Password :" FontSize="18" Margin="10,0,0,5"/>
+        <PasswordBox Name="passPass" Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
+        <Label Content="Repeat your password :" FontSize="18" Margin="10,0,0,5"/>
+        <PasswordBox Height="20" Width="180" HorizontalAlignment="Left" Margin="15,0,0,0" BorderBrush="Black" Background="DodgerBlue"/>
+        <Button Content="Submit" FontSize="20" HorizontalAlignment="Right" Background="DodgerBlue" BorderBrush="Black" Width="120" Margin="10"/>
+    </StackPanel>
+</Window>
