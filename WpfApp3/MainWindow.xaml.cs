@@ -26,7 +26,7 @@ namespace WpfApp3
         {
             InitializeComponent();
         }
-
+        public string nam;
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
             Window1 window1 = new Window1();
@@ -53,7 +53,7 @@ namespace WpfApp3
                                 {
                                     if (passPass.Password == reader["Password"].ToString())
                                     {
-                                        Main window = new Main();
+                                        Main window = new Main(reader["Name"].ToString());
                                         window.ShowDialog();
                                     }
                                 }
@@ -77,6 +77,11 @@ namespace WpfApp3
         {
             WindowForgot window = new WindowForgot();
             window.ShowDialog();
+        }
+
+        private void TxtLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            nam = txtLogin.Text;
         }
     }
 }
