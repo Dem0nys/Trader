@@ -35,6 +35,8 @@ namespace WpfApp3
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
+            string id = string.Empty;
+            string name = string.Empty;
             string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
             try
             {
@@ -53,15 +55,27 @@ namespace WpfApp3
                                 {
                                     if (passPass.Password == reader["Password"].ToString())
                                     {
-                                        Main window = new Main(reader["Name"].ToString());
-                                        window.ShowDialog();
+                                        id = reader["Id"].ToString();
+                                        name = reader["Name"].ToString();
+                                        
+                                        
+                                        
                                     }
                                 }
                             }
                         }
                     }
+                    conn.Close();
+                }
+                if (id != string.Empty)
+                {
+                    
+                    Main window = new Main(name,id);
+                    window.ShowDialog();
+                    this.Close();
                 }
             }
+            
             catch (SQLiteException ex)
             {
                 MessageBox.Show(ex.Message);

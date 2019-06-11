@@ -19,9 +19,11 @@ namespace WpfApp3
     /// </summary>
     public partial class WindowStore : Window
     {
-        public WindowStore()
+        public WindowStore(string Name,string Money)
         {
             InitializeComponent();
+            Username.Content = Name;
+            Mon.Content = Money;
         }
     }
 }

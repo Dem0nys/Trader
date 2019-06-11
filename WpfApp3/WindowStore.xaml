@@ -5,18 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="WindowStore" Height="900" Width="1500" MinHeight="900" Background="#FF003466" MinWidth="1500">
+        Title="WindowStore" Height="700" Width="1300" MinHeight="500" Background="#FF003466" MinWidth="1300">
 
     <StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
-            <Image Source="kurs.png" Height="100"/>
-            <Label Foreground="White" FontFamily="Comic Sans MS" Content="Tresu Store" FontSize="55"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="15,10,0,0" HorizontalAlignment="Left">
+                <Image Source="kurs.png" Height="100"/>
+                <Label Foreground="White" FontFamily="Comic Sans MS" Content="Tresu Store" FontSize="55"/>
 
+            </StackPanel>
+            <Border Margin="540,25,0,10" CornerRadius="4" Background="#FF07659B" Grid.Row="0"  BorderBrush="Black" BorderThickness="3" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Width="300">
+                <Grid>
+                    <Label Content="UserName" Foreground="White" x:Name="Username" Height="Auto" Width="Auto" HorizontalAlignment="Left" FontSize="24" VerticalAlignment="top"/>
+                    <Label Margin="0,0,10,0" Content="2445.23" Foreground="White" x:Name="Mon" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="24" VerticalAlignment="top"/>
+                    <Label Content="$" Foreground="White" x:Name="valute" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="24" VerticalAlignment="top"/>
+                </Grid>
+            </Border>
         </StackPanel>
         <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
         </Border>
-        <TextBlock Foreground="White" HorizontalAlignment="Right" Background="#FF003466"  Text="Name" FontFamily="Comic Sans MS" FontSize="45"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="959*"/>
@@ -27,29 +35,29 @@
                 <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="1">
-                <Border CornerRadius="10" Grid.Column="1" BorderBrush="Black" BorderThickness="5"  Margin="0,20,20,0" Height="250" Background="#FF000B51">
+                <Border CornerRadius="10" Grid.Column="1" BorderBrush="Black" BorderThickness="5"  Margin="0,10,20,0" Height="230" Background="#FF000B51">
 
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Image Width="60" Source="cs.jpg" Height="60"/>
-                            <Button Content="Couter-Strike: Global Offencive" Width="445" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
+                            <Button Content="Couter-Strike: Global Offencive" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <Image Width="60" Source="dota2.png" Height="60"/>
-                            <Button Content="Dota 2" Width="445" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
+                            <Button Content="Dota 2" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
                         </StackPanel>
                     </StackPanel>
 
                 </Border>
 
             </StackPanel>
-            <Border Grid.Row="1" CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="10,20,20,0" Height="380" Grid.ColumnSpan="2"  >
+            <Border Grid.Row="1" CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="10,20,20,0" Height="280" Grid.ColumnSpan="2"  >
                 <Border.Background>
                     <ImageBrush ImageSource="cyberpunk.jpg"/>
                 </Border.Background>
             </Border>
-            <Border CornerRadius="10" Grid.Column="0" BorderBrush="Black" BorderThickness="5"  Margin="0,20,20,0" Height="250" Background="#FF000B51">
+            <Border CornerRadius="10" Grid.Column="0" BorderBrush="Black" BorderThickness="5"  Margin="15,10,20,0" Height="230" Background="#FF000B51">
                 <WrapPanel>
                     
                     <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
@@ -82,46 +90,42 @@
                             <ImageBrush ImageSource="Dotan/Symbol of the King Restored.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="CS_GO/ak_47/vulcan.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="Dotan/Hell's Usher.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="CS_GO/awp/snake_camo.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="CS_GO/usp_s/kill_confirmed.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="Dotan/Golden Profane Union.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="CS_GO/ak_47/neon_revolution.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
                             <ImageBrush ImageSource="Dotan/Reaper's Wreath.png"/>
                         </Button.Background>
                     </Button>
-                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Dotan/Searing Dominator.png"/>
-                        </Button.Background>
-                    </Button>
+                    
 
 
                 </WrapPanel>

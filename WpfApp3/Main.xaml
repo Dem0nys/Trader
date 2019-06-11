@@ -8,21 +8,33 @@
         Title="Main" ResizeMode="NoResize" Background="#FF003466" Height="450" Width="640">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="165*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="354*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="177*"/>
             <ColumnDefinition Width="457*"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Source="kurs.png" Width="47" Margin="20,10,0,0"/>
-        <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="Auto" Width="Auto" FontFamily="Comic Sans MS" HorizontalAlignment="Center" FontSize="26" Margin="26,18,0,9" Foreground="White">Tresu</TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="36" Width="71" FontFamily="Comic Sans MS" HorizontalAlignment="Center" FontSize="26" Margin="66,20,40,11" Foreground="White">Tresu</TextBlock>
         <Border Margin="0,5,5,0" CornerRadius="4" Background="#FF07659B" Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200">
             <Grid>
                 <Label Content="UserName" Foreground="White" x:Name="Username" Height="Auto" Width="Auto" HorizontalAlignment="Left" FontSize="14" VerticalAlignment="top"/>
                 <Label Margin="0,0,10,0" Content="2445.23" Foreground="White" x:Name="Mon" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="14" VerticalAlignment="top"/>
                 <Label Content="$" Foreground="White" x:Name="valute" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="14" VerticalAlignment="top"/>
             </Grid>
+        </Border>
+        <Border Grid.Row="1" CornerRadius="10"  BorderBrush="Black" BorderThickness="3"  Margin="0,0,0,0"  Background="#FF000B51">
+            <StackPanel Grid.Row="1">
+                <Button Click="ButtonStore_Click" Content="Store" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
+                <Button Content="Trade" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
+                <Button Click="ButtonDonate_Click" Content="Donate" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="5,0,5,155" Grid.Column="1"  >
+            <Border.Background>
+                <ImageBrush ImageSource="advert/rainbox_six.jpg"/>
+            </Border.Background>
         </Border>
     </Grid>
 </Window>

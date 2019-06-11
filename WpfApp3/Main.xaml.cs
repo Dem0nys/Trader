@@ -22,10 +22,12 @@ namespace WpfApp3
     /// </summary>
     public partial class Main : Window
     {
-        public Main(string name)
+        int Id;
+        public Main(string name,string id)
         {
             InitializeComponent();
             Username.Content = name;
+            Id = int.Parse(id);
             oper();
         }
         public void oper()
@@ -56,7 +58,28 @@ namespace WpfApp3
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonStore_Click(object sender, RoutedEventArgs e)
+        {
+            WindowStore store = new WindowStore(Username.Content.ToString(),Mon.Content.ToString());
+            store.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDonate_Click(object sender, RoutedEventArgs e)
+        {
+            WindowDonate window = new WindowDonate(Id.ToString());
+            window.ShowDialog();
+        }
     }
 }
