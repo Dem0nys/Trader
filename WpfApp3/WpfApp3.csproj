@@ -158,6 +158,24 @@
     <Resource Include="CS_GO\usp_s\cyrex.png" />
     <Resource Include="CS_GO\usp_s\kill_confirmed.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dotan\Baneful Devotion.png" />
+    <Resource Include="Dotan\Basher of Mage Skulls.png" />
+    <Resource Include="Dotan\Chaos Fulcrum.png" />
+    <Resource Include="Dotan\Crimson Cyrridae.png" />
+    <Resource Include="Dotan\Fractal Horns of Inner Abysm.png" />
+    <Resource Include="Dotan\Golden Profane Union.png" />
+    <Resource Include="Dotan\Hell%27s Usher.png" />
+    <Resource Include="Dotan\Magus Accord.png" />
+    <Resource Include="Dotan\Manifold Paradox.png" />
+    <Resource Include="Dotan\Mantle of the Cinder Baron.png" />
+    <Resource Include="Dotan\Muh Keen Gun.png" />
+    <Resource Include="Dotan\Reaper%27s Wreath.png" />
+    <Resource Include="Dotan\Searing Dominator.png" />
+    <Resource Include="Dotan\Symbol of the King Restored.png" />
+    <Resource Include="Dotan\Transversant Soul.png" />
+    <Resource Include="Dotan\Wyrmwrought Flare.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
