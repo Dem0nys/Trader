@@ -66,6 +66,7 @@ namespace WpfApp3
             {
                 MessageBox.Show(ex.Message);
             }
+            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

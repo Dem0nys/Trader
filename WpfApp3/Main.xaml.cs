@@ -26,36 +26,37 @@ namespace WpfApp3
         {
             InitializeComponent();
             Username.Content = name;
+            oper();
         }
-        void MyOperation()
+        public void oper()
         {
-            //string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
-            //try
-            //{
-            //    using (SQLiteConnection conn = new SQLiteConnection(connString))
-            //    {
-            //        conn.Open();
-            //        string command = "SELECT * FROM Users";
-            //        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
-            //        {
-            //            using (SQLiteDataReader reader = cmd.ExecuteReader())
-            //            {
-            //                while (reader.Read())
-            //                {
-            //                    if (txtLogin.Text == reader["Name"].ToString())
-            //                    {
-
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (SQLiteException ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
+            string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    string command = "SELECT * FROM Users";
+                    using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                if (Username.Content.ToString() == reader["Name"].ToString())
+                                {
+                                    Mon.Content = reader["Money"].ToString();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        } 
 
     }
 }
