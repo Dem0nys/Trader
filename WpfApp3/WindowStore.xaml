@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp3.WindowStore"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="WindowStore" Height="900" Width="1500" MinHeight="900" Background="#FF003466" MinWidth="1500">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+            <Image Source="kurs.png" Height="100"/>
+            <Label Foreground="White" FontFamily="Comic Sans MS" Content="Tresu Store" FontSize="55"/>
+            
+        </StackPanel>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+        </Border>
+        <TextBlock Foreground="White" HorizontalAlignment="Right" Background="#FF003466"  Text="Name" FontFamily="Comic Sans MS" FontSize="45"/>
+    </StackPanel>
+</Window>

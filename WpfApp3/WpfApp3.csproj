@@ -86,6 +86,9 @@
     <Compile Include="WindowForgot.xaml.cs">
       <DependentUpon>WindowForgot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowStore.xaml.cs">
+      <DependentUpon>WindowStore.xaml</DependentUpon>
+    </Compile>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowForgot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowStore.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
