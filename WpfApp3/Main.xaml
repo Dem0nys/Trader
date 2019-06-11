@@ -17,5 +17,6 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Source="kurs.png" Width="47" Margin="20,10,0,0"/>
         <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="Auto" Width="Auto" FontFamily="Comic Sans MS" HorizontalAlignment="Center" FontSize="26" Margin="26,18,0,9" Foreground="White">Tresu</TextBlock>
+        <Label Grid.Row="0" Grid.Column="1" Content="qefsdfdf" Foreground="White" x:Name="Username" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="top"/>
     </Grid>
 </Window>
