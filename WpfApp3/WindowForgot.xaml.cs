@@ -12,29 +12,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp3
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WindowForgot.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WindowForgot : Window
     {
-        public MainWindow()
+        public WindowForgot()
         {
             InitializeComponent();
+            
         }
-
-        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
+        private void ButtonSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Window1 window1 = new Window1();
-            window1.ShowDialog();
-        }
-
-        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
-        {
+            string  id = string.Empty;
             string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
             try
             {
@@ -49,34 +43,32 @@ namespace WpfApp3
                             while (reader.Read())
                             {
 
-                                if (txtLogin.Text == reader["Email"].ToString())
+                                if (txtEmail.Text == reader["Email"].ToString())
                                 {
-                                    if (passPass.Password == reader["Password"].ToString())
+                                    if (txtName.Text == reader["Name"].ToString())
                                     {
-                                        Main window = new Main();
-                                        window.ShowDialog();
+                                        id = reader["Id"].ToString();
+
+
                                     }
                                 }
                             }
                         }
                     }
+                    conn.Close();
+                }
+                if (id != string.Empty)
+                {
+                    WindowChangePass window = new WindowChangePass(id);
+                    window.ShowDialog();
+                    this.Close();
                 }
             }
             catch (SQLiteException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonForgot_Click(object sender, RoutedEventArgs e)
-        {
-            WindowForgot window = new WindowForgot();
-            window.ShowDialog();
+            
         }
     }
 }
