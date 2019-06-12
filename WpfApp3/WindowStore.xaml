@@ -135,7 +135,7 @@
             <Border x:Name="borderSkinsCS" CornerRadius="10"  Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="5" Visibility="Hidden"  Margin="15,10,20,0" Background="#FF000B51">
 
                 <ScrollViewer Height="520">
-                    <ListView  ItemsSource="{Binding SkinItem}" x:Name="listViewCS" Background="#FF000B51">
+                    <ListView  SelectionMode="Single" ItemsSource="{Binding SkinItem}" x:Name="listViewCS" Background="#FF000B51">
                         <ListView.ItemTemplate>
                             
                             <DataTemplate>
@@ -151,6 +151,8 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding Price}" HorizontalAlignment="Right" Foreground="White" Margin="20,0,0,0" FontSize="26" />
                                         <TextBlock Text="$" Foreground="White" FontSize="26" />
+                                        <Label x:Name="id" Visibility="Hidden"/>
+                                        <Button Click="ButtonBuy_Click" HorizontalAlignment="Right" FontSize="24" Margin="50,0,0,0" Content="Buy it"/>
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>

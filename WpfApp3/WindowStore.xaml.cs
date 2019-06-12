@@ -22,11 +22,13 @@ namespace WpfApp3
     /// </summary>
     public partial class WindowStore : Window
     {
-        public WindowStore(string Name,string Money)
+        int Id;
+        public WindowStore(string Name,string Money,int id)
         {
             InitializeComponent();
             Username.Content = Name;
             Mon.Content = Money;
+            Id = id;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -122,6 +124,76 @@ namespace WpfApp3
                 MessageBox.Show(ex.Message);
             }
             borderSkinsDota.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void ButtonBuy_Click(object sender, RoutedEventArgs e)
+        {
+            int id_skin = listViewCS.SelectedIndex+1;
+            string Name= "Usp-s Kill Confirmed", ImgName= "CS_GO/ usp_s / kill_confirmed.png", Price="125.78";
+            string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    ImageBrush image = new ImageBrush();
+
+                    string command = "SELECT * FROM Skins ";
+                    using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                    {
+                        
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                           
+                            while (reader.Read())
+                            {
+
+
+                                if (reader["Id"].ToString() == id_skin.ToString())
+                                {
+                                    Name = reader["Name"].ToString();
+                                    ImgName = reader["ImgName"].ToString();
+                                    Price = reader["Price"].ToString();
+                                }
+                                //cmd.ExecuteNonQuery();
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                {
+                    conn.Open();
+                    string command = "INSERT INTO Skins (Name,ImgName,Price,user_id) VALUES(@Name,@ImgName,@Price,@user_id)";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                    {
+                        cmd.Prepare();
+                        
+                       
+                        
+                        
+                         cmd.Parameters.AddWithValue("@Name", Name);
+                        cmd.Parameters.AddWithValue("@ImgName", ImgName);
+                        cmd.Parameters.AddWithValue("@Price", Price);
+                        cmd.Parameters.AddWithValue("@user_id", Id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

@@ -67,7 +67,7 @@ namespace WpfApp3
 
         private void ButtonStore_Click(object sender, RoutedEventArgs e)
         {
-            WindowStore store = new WindowStore(Username.Content.ToString(),Mon.Content.ToString());
+            WindowStore store = new WindowStore(Username.Content.ToString(),Mon.Content.ToString(),Id);
             store.ShowDialog();
         }
 
