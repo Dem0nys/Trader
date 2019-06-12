@@ -146,6 +146,8 @@
                                         </Button.Background>
                                     </Button>
                                     <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                    <TextBlock Text="{Binding Price}" Foreground="White" FontSize="26" Margin="100,0,0,0"/>
+                                    <TextBlock Text="$" Foreground="White" FontSize="26" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -211,6 +213,8 @@
                                         </Button.Background>
                                     </Button>
                                     <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                    <TextBlock Text="{Binding Price}" Foreground="White" FontSize="26" Margin="100,0,0,0"/>
+                                    <TextBlock Text="$" Foreground="White" FontSize="26" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

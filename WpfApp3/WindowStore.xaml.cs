@@ -59,6 +59,7 @@ namespace WpfApp3
                                 skin.Id = int.Parse(reader["Id"].ToString());
                                 skin.Name = reader["Name"].ToString();
                                 skin.Image = new BitmapImage(new Uri("../../"+reader["ImgName"].ToString(), UriKind.Relative));
+                                skin.Price = double.Parse(reader["Price"].ToString());
                                 skins.Add(skin);
                                
                                 
@@ -107,6 +108,7 @@ namespace WpfApp3
                                 skin.Id = int.Parse(reader["Id"].ToString());
                                 skin.Name = reader["Name"].ToString();
                                 skin.Image = new BitmapImage(new Uri("../../" + reader["ImgName"].ToString(), UriKind.Relative));
+                                skin.Price = double.Parse(reader["Price"].ToString());
                                 skins.Add(skin);
 
 
