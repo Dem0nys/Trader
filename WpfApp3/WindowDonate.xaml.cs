@@ -21,7 +21,7 @@ namespace WpfApp3
     public partial class WindowDonate : Window
     {
         int Id;
-        public int Money;
+        public double Money;
         public WindowDonate(string id)
         {
             InitializeComponent();
@@ -49,12 +49,9 @@ namespace WpfApp3
                         {
                             while (reader.Read())
                             {
-
                                 if (Id.ToString() == reader["Id"].ToString())
                                 {
-                                        money = reader["Money"].ToString();                           
-                                        
-                                
+                                        money = reader["Money"].ToString();                                                                                                  
                                 }
                             }
                         }
@@ -63,8 +60,7 @@ namespace WpfApp3
                 }
                 if (money != string.Empty)
                 {
-
-                    Money = int.Parse(money);
+                    Money = double.Parse(money);
                     this.Close();
                 }
             }
@@ -74,7 +70,7 @@ namespace WpfApp3
                 MessageBox.Show(ex.Message);
             }
             connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
-            int m = int.Parse(txtSum.Text) + Money;
+            double m = double.Parse(txtSum.Text) + Money;
             try
             {
                 using (SQLiteConnection conn = new SQLiteConnection(connString))
@@ -88,7 +84,7 @@ namespace WpfApp3
 
                         if (!String.IsNullOrEmpty(txtSum.Text))
                         {      
-                            if(int.Parse(txtSum.Text)<50)
+                            if(double.Parse(txtSum.Text)<50.0)
                                 cmd.Parameters.AddWithValue("@Money",m.ToString() );                          
                         }
                         cmd.Parameters.AddWithValue("@Id", Id);
