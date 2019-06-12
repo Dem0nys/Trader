@@ -108,8 +108,7 @@ namespace WpfApp3
                                 skin.Name = reader["Name"].ToString();
                                 skin.Image = new BitmapImage(new Uri("../../" + reader["ImgName"].ToString(), UriKind.Relative));
                                 skins.Add(skin);
-
-
+                                
                             }
                             listViewDota.ItemsSource = skins;
                         }

@@ -13,7 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace WpfApp3
 {
     /// <summary>
@@ -22,7 +21,7 @@ namespace WpfApp3
     public partial class WindowDonate : Window
     {
         int Id;
-        int Money;
+        public int Money;
         public WindowDonate(string id)
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace WpfApp3
                                 if (Id.ToString() == reader["Id"].ToString())
                                 {
                                         money = reader["Money"].ToString();                           
-
+                                        
                                 
                                 }
                             }
