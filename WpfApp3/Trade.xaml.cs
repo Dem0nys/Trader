@@ -12,25 +12,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp3
 {
     /// <summary>
-    /// Interaction logic for Main.xaml
+    /// Interaction logic for Trade.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class Trade : Window
     {
-        int Id;
-        public Main(string name,string id)
+        public Trade(object name,object money)
         {
             InitializeComponent();
+            Mon.Content = money;
             Username.Content = name;
-            Id = int.Parse(id);
-            oper();
+            add();
         }
-        public void oper()
+        public void add()
         {
             string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
             try
@@ -45,10 +43,7 @@ namespace WpfApp3
                         {
                             while (reader.Read())
                             {
-                                if (Username.Content.ToString() == reader["Name"].ToString())
-                                {
-                                    Mon.Content = reader["Money"].ToString();
-                                }
+                                combo.Items.Add(reader["Name"].ToString());
                             }
                         }
                     }
@@ -60,37 +55,6 @@ namespace WpfApp3
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void ButtonStore_Click(object sender, RoutedEventArgs e)
-        {
-            WindowStore store = new WindowStore(Username.Content.ToString(),Mon.Content.ToString());
-            store.ShowDialog();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonDonate_Click(object sender, RoutedEventArgs e)
-        {
-            WindowDonate window = new WindowDonate(Id.ToString());
-            window.ShowDialog();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonTrade_Click(object sender, RoutedEventArgs e)
-        {
-            Trade trade = new Trade(Username.Content, Mon.Content);
-            trade.ShowDialog();
-        }
     }
 }
