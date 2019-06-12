@@ -79,7 +79,11 @@ namespace WpfApp3
         private void ButtonDonate_Click(object sender, RoutedEventArgs e)
         {
             WindowDonate window = new WindowDonate(Id.ToString());
-            window.ShowDialog();
+            if (window.ShowDialog() == true)
+            {
+                 Mon.Content = window.Money;
+            }
+            oper();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
