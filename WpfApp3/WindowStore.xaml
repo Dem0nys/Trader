@@ -40,24 +40,24 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Image Width="60" Source="cs.jpg" Height="60"/>
-                            <Button Content="Couter-Strike: Global Offencive" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
+                            <Button Click="ButtonCs_Click" Content="Couter-Strike: Global Offencive" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <Image Width="60" Source="dota2.png" Height="60"/>
-                            <Button Content="Dota 2" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
+                            <Button Click="ButtonDota_Click" Content="Dota 2" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
                         </StackPanel>
                     </StackPanel>
 
                 </Border>
 
             </StackPanel>
-            <Border Grid.Row="1" CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="10,20,20,0" Height="280" Grid.ColumnSpan="2"  >
+            <Border x:Name="borderAdvert" Grid.Row="1" CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="10,20,20,0" Height="280" Grid.ColumnSpan="2"  >
                 <Border.Background>
                     <ImageBrush ImageSource="cyberpunk.jpg"/>
                 </Border.Background>
             </Border>
-            <Border CornerRadius="10" Grid.Column="0" BorderBrush="Black" BorderThickness="5"  Margin="15,10,20,0" Height="230" Background="#FF000B51">
+            <Border x:Name="borderSkins" CornerRadius="10" Grid.Column="0" BorderBrush="Black" BorderThickness="5"  Margin="15,10,20,0" Height="230" Background="#FF000B51">
                 <WrapPanel>
                     
                     <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
@@ -97,7 +97,7 @@
                     </Button>
                     <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
-                            <ImageBrush ImageSource="Dotan/Hell's Usher.png"/>
+                            <ImageBrush ImageSource="Dotan/Hell`s Usher.png"/>
                         </Button.Background>
                     </Button>
                     <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
@@ -122,7 +122,7 @@
                     </Button>
                     <Button BorderBrush="Black" Width="90" Height="90" Margin="20,0,20,20">
                         <Button.Background>
-                            <ImageBrush ImageSource="Dotan/Reaper's Wreath.png"/>
+                            <ImageBrush ImageSource="Dotan/Reaper`s Wreath.png"/>
                         </Button.Background>
                     </Button>
                     
@@ -131,6 +131,173 @@
                 </WrapPanel>
                 
                 
+            </Border>
+            <Border x:Name="borderSkinsCS" CornerRadius="10"  Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="5" Visibility="Hidden"  Margin="15,10,20,0" Background="#FF000B51">
+
+                <ScrollViewer Height="520">
+                    <ListView  ItemsSource="{Binding SkinItem}" x:Name="listViewCS" Background="#FF000B51">
+                        <ListView.ItemTemplate>
+                            
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding Image}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+                <!--<Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/ak_47/asiimov.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/ak_47/neon_revolution.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/ak_47/vulcan.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/awp/dragon_lore.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/awp/medusa.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/awp/snake_camo.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/famas/crypsis.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/usp_s/cyrex.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="CS_GO/usp_s/kill_confirmed.png"/>
+                        </Button.Background>
+                    </Button>-->
+                
+            </Border>
+            <Border x:Name="borderSkinsDota" CornerRadius="10"  Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="5" Visibility="Hidden"  Margin="15,10,20,0" Background="#FF000B51">
+
+                <ScrollViewer Height="520">
+                    <ListView  ItemsSource="{Binding SkinItem}" x:Name="listViewDota" Background="#FF000B51">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding Image}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+                <!--<WrapPanel>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Baneful Devotion.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Basher of Mage Skulls.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Chaos Fulcrum.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Crimson Cyrridae.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Fractal Horns of Inner Abysm.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Golden Profane Union.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Hell`s Usher.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Magus Accord.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Manifold Paradox.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Mantle of the Cinder Baron.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Muh Keen Gun.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Reaper`s Wreath.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Searing Dominator.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Symbol of the King Restored.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Transversant Soul.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Dotan/Wyrmwrought Flare.png"/>
+                        </Button.Background>
+                    </Button>
+                </WrapPanel>-->
             </Border>
         </Grid>
     </StackPanel>
