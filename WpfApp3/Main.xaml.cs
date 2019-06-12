@@ -96,5 +96,11 @@ namespace WpfApp3
             Trade trade = new Trade(Username.Content, Mon.Content);
             trade.ShowDialog();
         }
+
+        private void ButtonInventory_Click(object sender, RoutedEventArgs e)
+        {
+            WindowInventory inventory = new WindowInventory(Username.Content.ToString(),Id.ToString() ,Mon.Content.ToString());
+            inventory.ShowDialog();
+        }
     }
 }

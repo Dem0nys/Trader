@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApp3.WindowInventory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="WindowInventory" ResizeMode="NoResize" Background="#FF003466" Height="450" Width="640">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+        <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Source="kurs.png" Width="47" Margin="20,10,0,0"/>
+        <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="36" Width="71" FontFamily="Comic Sans MS" HorizontalAlignment="Center" FontSize="26" Margin="10,20,40,11" Foreground="White">Tresu</TextBlock>
+            <Border Margin="230,15,5,0" CornerRadius="4" Background="#FF07659B" Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200">
+                <Grid>
+                    <Label Content="UserName" Foreground="White" x:Name="Username" Height="Auto" Width="Auto" HorizontalAlignment="Left" FontSize="14" VerticalAlignment="top"/>
+                    <Label Margin="0,0,10,0" Content="2445.23" Foreground="White" x:Name="Mon" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="14" VerticalAlignment="top"/>
+                    <Label Content="$" Foreground="White" x:Name="valute" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="14" VerticalAlignment="top"/>
+                </Grid>
+            </Border>
+            
+        </StackPanel>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+        </Border>
+        <Border x:Name="borderSkinsCS" CornerRadius="10"  Height="320" BorderBrush="Black" BorderThickness="5" Visibility="Visible"  Margin="15,10,20,0" Background="#FF000B51">
+
+            <ScrollViewer Height="310">
+                <ListView  ItemsSource="{Binding SkinItem}" x:Name="listViewCS" Background="#FF000B51">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding Image}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Price}" HorizontalAlignment="Right" Foreground="White" Margin="20,0,0,0" FontSize="26" />
+                                    <TextBlock Text="$" Foreground="White" FontSize="26" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Border>
+
+    </StackPanel>
+</Window>
