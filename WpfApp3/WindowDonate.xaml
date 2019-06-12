@@ -27,7 +27,7 @@
         <Label Content="Sum of donating :"  Margin="20,0,0,0" FontSize="18" Foreground="White"/>
         <StackPanel Orientation="Horizontal">
             <TextBox Name="txtSum" Height="40" FontSize="20" Width="170" BorderBrush="Black" Background="#FF003466" Foreground="White" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-            <Button Click="ButtonDonate_Click" Margin="270,0,0,0" BorderBrush="Black" Content="Donate" FontSize="24" Background="#FF003466" Foreground="White" Width="150"/>
+            <Button  Click="ButtonDonate_Click" Margin="270,0,0,0" BorderBrush="Black" Content="Donate" FontSize="24" Background="#FF003466" Foreground="White" Width="150"/>
         </StackPanel>
     </StackPanel>
 </Window>
