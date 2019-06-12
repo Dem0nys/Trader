@@ -23,12 +23,14 @@ namespace WpfApp3
     public partial class WindowStore : Window
     {
         int Id;
+        string Mone;
         public WindowStore(string Name,string Money,int id)
         {
             InitializeComponent();
             Username.Content = Name;
             Mon.Content = Money;
             Id = id;
+            Mone = Money;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -128,72 +130,208 @@ namespace WpfApp3
 
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
-            int id_skin = listViewCS.SelectedIndex+1;
-            string Name= "Usp-s Kill Confirmed", ImgName= "CS_GO/ usp_s / kill_confirmed.png", Price="125.78";
-            string connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
-            try
+            if (MessageBox.Show("You really want to buy it ?", "Tresu Store", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
-                using (SQLiteConnection conn = new SQLiteConnection(connString))
-                {
-                    conn.Open();
-                    ImageBrush image = new ImageBrush();
 
-                    string command = "SELECT * FROM Skins ";
-                    using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+
+                int id_skin = listViewCS.SelectedIndex + 1;
+                string Name = "Usp-s Kill Confirmed", ImgName = "CS_GO/usp_s/kill_confirmed.png", Price = "125.78";
+                int price_skin=0;
+                double num;
+                string connString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
-                        
-                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        conn.Open();
+                        ImageBrush image = new ImageBrush();
+
+                        string command = "SELECT * FROM SkinsCS";
+                        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
                         {
-                           
-                            while (reader.Read())
+
+                            using (SQLiteDataReader reader = cmd.ExecuteReader())
                             {
 
-
-                                if (reader["Id"].ToString() == id_skin.ToString())
+                                while (reader.Read())
                                 {
-                                    Name = reader["Name"].ToString();
-                                    ImgName = reader["ImgName"].ToString();
-                                    Price = reader["Price"].ToString();
+
+
+                                    if (reader["Id"].ToString() == id_skin.ToString())
+                                    {
+                                        if(double.Parse(Mone)< double.Parse(reader["Price"].ToString()))
+                                        {
+                                            MessageBox.Show("You haven`t got money to buy this skin");
+                                            WindowDonate window = new WindowDonate(Id.ToString());
+                                            window.ShowDialog();
+                                            return;
+                                        }
+                                        Name = reader["Name"].ToString();
+                                        ImgName = reader["ImgName"].ToString();
+                                        Price = reader["Price"].ToString();
+                                        
+                                        num = Math.Round(double.Parse(reader["Price"].ToString()));
+                                        price_skin =int.Parse(num.ToString());
+                                    }
+                                    //cmd.ExecuteNonQuery();
                                 }
-                                //cmd.ExecuteNonQuery();
+
                             }
-                            
                         }
                     }
                 }
-            }
-            catch (SQLiteException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
-            try
-            {
-                using (SQLiteConnection conn = new SQLiteConnection(connString))
+                catch (SQLiteException ex)
                 {
-                    conn.Open();
-                    string command = "INSERT INTO Skins (Name,ImgName,Price,user_id) VALUES(@Name,@ImgName,@Price,@user_id)";
-
-                    using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                    MessageBox.Show(ex.Message);
+                }
+                connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
                     {
-                        cmd.Prepare();
-                        
-                       
-                        
-                        
-                         cmd.Parameters.AddWithValue("@Name", Name);
-                        cmd.Parameters.AddWithValue("@ImgName", ImgName);
-                        cmd.Parameters.AddWithValue("@Price", Price);
-                        cmd.Parameters.AddWithValue("@user_id", Id);
-                        cmd.ExecuteNonQuery();
+                        conn.Open();
+                        string command = "UPDATE Users SET Money = @Money WHERE Id = @Id";
+
+                        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Money", price_skin.ToString());
+                            cmd.Parameters.AddWithValue("@Id", Id);
+                            cmd.Prepare();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    
+                }
+                connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
+                    {
+                        conn.Open();
+                        string command = "INSERT INTO Skins (Name,ImgName,Price,user_id) VALUES(@Name,@ImgName,@Price,@user_id)";
+
+                        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                        {
+                            cmd.Prepare();
+                            cmd.Parameters.AddWithValue("@Name", Name);
+                            cmd.Parameters.AddWithValue("@ImgName", ImgName);
+                            cmd.Parameters.AddWithValue("@Price", Price);
+                            cmd.Parameters.AddWithValue("@user_id", Id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+        }
+
+        private void ButtonBuyDota_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("You really want to buy it ?", "Tresu Store", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
-                MessageBox.Show(ex.Message);
+
+
+                int id_skin = listViewCS.SelectedIndex + 1;
+                string Name = "Usp-s Kill Confirmed", ImgName = "CS_GO/usp_s/kill_confirmed.png", Price = "125.78";
+                int price_skin = 0;
+                double num;
+                string connString = ConfigurationManager.ConnectionStrings["BConnection"].ConnectionString;
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
+                    {
+                        conn.Open();
+                        ImageBrush image = new ImageBrush();
+
+                        string command = "SELECT * FROM SkinsDota";
+                        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                        {
+
+                            using (SQLiteDataReader reader = cmd.ExecuteReader())
+                            {
+
+                                while (reader.Read())
+                                {
+
+
+                                    if (reader["Id"].ToString() == id_skin.ToString())
+                                    {
+                                        if (double.Parse(Mone) < double.Parse(reader["Price"].ToString()))
+                                        {
+                                            MessageBox.Show("You haven`t got so much money to buy this skin");
+                                            WindowDonate window = new WindowDonate(Id.ToString());
+                                            window.ShowDialog();
+                                            return;
+                                        }
+                                        Name = reader["Name"].ToString();
+                                        ImgName = reader["ImgName"].ToString();
+                                        Price = reader["Price"].ToString();
+
+                                        num = Math.Round(double.Parse(reader["Price"].ToString()));
+                                        price_skin = int.Parse(num.ToString());
+                                    }
+                                    //cmd.ExecuteNonQuery();
+                                }
+
+                            }
+                        }
+                    }
+                }
+                catch (SQLiteException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
+                    {
+                        conn.Open();
+                        string command = "UPDATE Users SET Money = @Money WHERE Id = @Id";
+
+                        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Money", price_skin.ToString());
+                            cmd.Parameters.AddWithValue("@Id", Id);
+                            cmd.Prepare();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(connString))
+                    {
+                        conn.Open();
+                        string command = "INSERT INTO Skins (Name,ImgName,Price,user_id) VALUES(@Name,@ImgName,@Price,@user_id)";
+
+                        using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
+                        {
+                            cmd.Prepare();
+                            cmd.Parameters.AddWithValue("@Name", Name);
+                            cmd.Parameters.AddWithValue("@ImgName", ImgName);
+                            cmd.Parameters.AddWithValue("@Price", Price);
+                            cmd.Parameters.AddWithValue("@user_id", Id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            
         }
     }
 }

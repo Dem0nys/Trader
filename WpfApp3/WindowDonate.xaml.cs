@@ -53,8 +53,6 @@ namespace WpfApp3
                                 if (Id.ToString() == reader["Id"].ToString())
                                 {
                                         money = reader["Money"].ToString();                           
-                                        
-                                
                                 }
                             }
                         }
