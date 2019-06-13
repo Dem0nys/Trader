@@ -49,10 +49,11 @@ namespace WpfApp3
                         {
                             while (reader.Read())
                             {
-
                                 if (Id.ToString() == reader["Id"].ToString())
                                 {
                                         money = reader["Money"].ToString();                           
+                                        
+                                
                                 }
                             }
                         }
@@ -61,7 +62,6 @@ namespace WpfApp3
                 }
                 if (money != string.Empty)
                 {
-
                     Money = int.Parse(money);
                     this.Close();
                 }
