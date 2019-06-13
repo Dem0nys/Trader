@@ -171,6 +171,7 @@ namespace WpfApp3
                                         Price = reader["Price"].ToString();
                                         
                                         num = Math.Round(double.Parse(reader["Price"].ToString()));
+                                        //MessageBox.Show(num.ToString());
                                         price_skin =int.Parse(num.ToString());
                                     }
                                     //cmd.ExecuteNonQuery();
@@ -184,6 +185,7 @@ namespace WpfApp3
                 {
                     MessageBox.Show(ex.Message);
                 }
+                int money = int.Parse(Mon.Content.ToString()) - price_skin;
                 connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
                 try
                 {
@@ -194,7 +196,7 @@ namespace WpfApp3
 
                         using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
                         {
-                            cmd.Parameters.AddWithValue("@Money", price_skin.ToString());
+                            cmd.Parameters.AddWithValue("@Money", money);
                             cmd.Parameters.AddWithValue("@Id", Id);
                             cmd.Prepare();
                             cmd.ExecuteNonQuery();
@@ -237,7 +239,7 @@ namespace WpfApp3
             {
 
 
-                int id_skin = listViewCS.SelectedIndex + 1;
+                int id_skin = listViewDota.SelectedIndex + 1;
                 string Name = "Usp-s Kill Confirmed", ImgName = "CS_GO/usp_s/kill_confirmed.png", Price = "125.78";
                 int price_skin = 0;
                 double num;
@@ -274,6 +276,7 @@ namespace WpfApp3
                                         Price = reader["Price"].ToString();
 
                                         num = Math.Round(double.Parse(reader["Price"].ToString()));
+                                        //MessageBox.Show(num.ToString());
                                         price_skin = int.Parse(num.ToString());
                                     }
                                     //cmd.ExecuteNonQuery();
@@ -287,6 +290,7 @@ namespace WpfApp3
                 {
                     MessageBox.Show(ex.Message);
                 }
+                int money = int.Parse(Mon.Content.ToString()) - price_skin;
                 connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
                 try
                 {
@@ -297,7 +301,7 @@ namespace WpfApp3
 
                         using (SQLiteCommand cmd = new SQLiteCommand(command, conn))
                         {
-                            cmd.Parameters.AddWithValue("@Money", price_skin.ToString());
+                            cmd.Parameters.AddWithValue("@Money", money);
                             cmd.Parameters.AddWithValue("@Id", Id);
                             cmd.Prepare();
                             cmd.ExecuteNonQuery();
