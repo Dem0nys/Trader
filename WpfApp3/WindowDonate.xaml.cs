@@ -21,7 +21,7 @@ namespace WpfApp3
     public partial class WindowDonate : Window
     {
         int Id;
-        public double Money;
+        public int Money;
         public WindowDonate(string id)
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace WpfApp3
                 }
                 if (money != string.Empty)
                 {
-                    Money = double.Parse(money);
+                    Money = int.Parse(money);
                     this.Close();
                 }
             }
@@ -70,7 +70,7 @@ namespace WpfApp3
                 MessageBox.Show(ex.Message);
             }
             connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
-            double m = double.Parse(txtSum.Text) + Money;
+            int m = int.Parse(txtSum.Text) + Money;
             try
             {
                 using (SQLiteConnection conn = new SQLiteConnection(connString))
@@ -84,7 +84,7 @@ namespace WpfApp3
 
                         if (!String.IsNullOrEmpty(txtSum.Text))
                         {      
-                            if(double.Parse(txtSum.Text)<50.0)
+                            if(int.Parse(txtSum.Text)<50)
                                 cmd.Parameters.AddWithValue("@Money",m.ToString() );                          
                         }
                         cmd.Parameters.AddWithValue("@Id", Id);
