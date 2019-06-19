@@ -27,9 +27,9 @@
         <Border Grid.Row="1" CornerRadius="10"  BorderBrush="Black" BorderThickness="3"  Margin="0,0,0,0"  Background="#FF000B51">
             <StackPanel Grid.Row="1">
                 <Button Click="ButtonStore_Click" Content="Store" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
-                <Button Click="ButtonTrade_Click" Content="Trade" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
                 <Button Click="ButtonDonate_Click" Content="Donate" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
                 <Button Click="ButtonInventory_Click" Content="Inventory" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
+                <Button Click="ButtonTrade_Click" Content="Add" Margin="0,5,0,0" FontSize="16" Foreground="White" Background="Gray" />
             </StackPanel>
         </Border>
         <Border Grid.Row="1" CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="5,0,5,155" Grid.Column="1"  >

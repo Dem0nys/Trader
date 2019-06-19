@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Trade" Height="608" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Width="1268" Background="#FF003466">
+        Title="Trade" Height="728" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Width="1268" Background="#FF003466">
     <Window.Resources>
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Grid>
@@ -186,19 +186,72 @@
                 <Label Content="$" Foreground="White" x:Name="valute" Height="Auto" Width="Auto" HorizontalAlignment="Right" FontSize="24" VerticalAlignment="top"/>
             </Grid>
         </Border>
-        <Border CornerRadius="10" BorderBrush="Black" BorderThickness="5" Background="#FF000B51" Margin="390,120,0,380">
+
+        <Border CornerRadius="10" BorderBrush="Black" BorderThickness="5"  Margin="455,125,20,493" Background="#FF000B51">
             <StackPanel>
-                <StackPanel Margin="0,6,0,0" HorizontalAlignment="Left" Width="430" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="70">
                     <Image Width="60" Source="cs.jpg" Height="60"/>
-                    <Button Content="Couter-Strike: Global Offencive" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Margin="0,-60,5,0" Width="430" Orientation="Horizontal">
+                    <Button Click="ButtonCs_Click" Content="Couter-Strike: Global Offencive" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
                     <Image Width="60" Source="dota2.png" Height="60"/>
-                    <Button Content="Dota 2" Width="370" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
+                    <Button Click="ButtonDota_Click" Content="Dota 2" Width="282" FontSize="26" Foreground="White" Background="Gray" Height="60"/>
                 </StackPanel>
             </StackPanel>
-        </Border>
-        <ComboBox Name="combo" Margin="20,125,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="350"/>
 
+        </Border>
+        <ComboBox Name="combo" Margin="20,135,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="350"/>
+
+        <Border x:Name="borderSkins" CornerRadius="10" Grid.Column="0" BorderBrush="Black" BorderThickness="5"  Margin="20,264,708,43" Background="#FF000B51"/>
+        <Border x:Name="borderSkinsCS" CornerRadius="10"  Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="5" Visibility="Hidden" Margin="20,264,708,43" Background="#FF000B51">
+            <ScrollViewer Height="370">
+                <ListView  SelectionMode="Single" ItemsSource="{Binding SkinItem}" x:Name="listViewCS" Background="#FF000B51">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding Image}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Price}" HorizontalAlignment="Right" Foreground="White" Margin="20,0,0,0" FontSize="26" />
+                                    <TextBlock Text="$" Foreground="White" FontSize="26" />
+                                    <Label x:Name="id" Visibility="Hidden"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Border>
+        <Border x:Name="borderSkinsDota" CornerRadius="10"  Grid.Column="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="5" Visibility="Hidden" Margin="20,264,708,43" Background="#FF000B51">
+            <ScrollViewer Height="370">
+                <ListView  SelectionMode="Single" ItemsSource="{Binding SkinItem}" x:Name="listViewDota" Background="#FF000B51">
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button BorderBrush="Black" Width="90" Height="90" Margin="20,10,20,20">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="{Binding Image}"/>
+                                        </Button.Background>
+                                    </Button>
+                                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="26"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Price}" HorizontalAlignment="Right" Foreground="White" Margin="20,0,0,0" FontSize="26" />
+                                    <TextBlock Text="$" Foreground="White" FontSize="26" />
+                                    <Label x:Name="id" Visibility="Hidden"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Window>

@@ -93,8 +93,16 @@ namespace WpfApp3
 
         private void ButtonTrade_Click(object sender, RoutedEventArgs e)
         {
-            Trade trade = new Trade(Username.Content, Mon.Content);
-            trade.ShowDialog();
+            if (Username.Content.ToString() == "Admin")
+            {
+                Trade trade = new Trade(Username.Content, Mon.Content, Id);
+                trade.ShowDialog();
+            }
+            else
+            {
+                for(int i=0;i<5;i++)
+                MessageBox.Show("ONLY FOR ADMIN!!!!!!!!!!!!!!!");
+            }
         }
 
         private void ButtonInventory_Click(object sender, RoutedEventArgs e)
