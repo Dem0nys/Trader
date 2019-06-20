@@ -210,6 +210,7 @@ namespace WpfApp3
                                         skin.Id = id_skin;
                                         skin.Name = reader["Name"].ToString();
                                         skin.Image = new BitmapImage(new Uri("../../" + reader["ImgName"].ToString(), UriKind.Relative));
+                                    skin.Path = reader["ImgName"].ToString();
                                         skin.Price = int.Parse(num.ToString());
                                         skins1.Add(skin);
                                     }
@@ -252,6 +253,7 @@ namespace WpfApp3
                                     skin.Id = id_skin;
                                     skin.Name = reader["Name"].ToString();
                                     skin.Image = new BitmapImage(new Uri("../../" + reader["ImgName"].ToString(), UriKind.Relative));
+                                    skin.Path = reader["ImgName"].ToString();
                                     skin.Price = int.Parse(num.ToString());
                                     skins2.Add(skin);
                                 }
@@ -297,7 +299,7 @@ namespace WpfApp3
                         {
                             cmd.Prepare();
                             cmd.Parameters.AddWithValue("@Name", c.Name);
-                            cmd.Parameters.AddWithValue("@ImgName", c.Image);
+                            cmd.Parameters.AddWithValue("@ImgName",c.Path);
                             cmd.Parameters.AddWithValue("@Price", c.Price);
                             cmd.Parameters.AddWithValue("@user_id", num);
                             cmd.ExecuteNonQuery();
@@ -324,10 +326,11 @@ namespace WpfApp3
                         {
                             cmd.Prepare();
                             cmd.Parameters.AddWithValue("@Name", c.Name);
-                            cmd.Parameters.AddWithValue("@ImgName", c.Image);
+                            cmd.Parameters.AddWithValue("@ImgName", c.Path);
                             cmd.Parameters.AddWithValue("@Price", c.Price);
                             cmd.Parameters.AddWithValue("@user_id", num);
                             cmd.ExecuteNonQuery();
+
                         }
                     }
                 }
@@ -336,6 +339,8 @@ namespace WpfApp3
             {
                 MessageBox.Show(ex.Message);
             }
+            MessageBox.Show("Add Success");
+            this.Close();
         }
     }
 

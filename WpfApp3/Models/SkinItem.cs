@@ -13,5 +13,6 @@ namespace WpfApp3.Models
         public string Name { get; set; }
         public BitmapImage Image { get; set; }
         public double Price { get; set; }
+        public string Path { get; set; }
     }
 }
