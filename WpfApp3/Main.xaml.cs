@@ -107,8 +107,16 @@ namespace WpfApp3
 
         private void ButtonInventory_Click(object sender, RoutedEventArgs e)
         {
-            WindowInventory inventory = new WindowInventory(Username.Content.ToString(),Id.ToString() ,Mon.Content.ToString());
-            inventory.ShowDialog();
+            try
+            {
+                WindowInventory inventory = new WindowInventory(Username.Content.ToString(), Id.ToString(), Mon.Content.ToString());
+                inventory.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

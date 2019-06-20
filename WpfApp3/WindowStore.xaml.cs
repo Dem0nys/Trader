@@ -207,6 +207,10 @@ namespace WpfApp3
                 {
                     
                 }
+
+
+
+
                 connString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
                 try
                 {
@@ -230,6 +234,10 @@ namespace WpfApp3
                 {
                     MessageBox.Show(ex.Message);
                 }
+
+
+
+
             }
         }
 
